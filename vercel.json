@@ -3,6 +3,6 @@
     "framework": "laravel",
     "public": true,
     "rewrites": [
-        { "source": "/(.*)", "destination": "/api/index.php" }
+        { "source": "/(.*)", "destination": "/index.php" }
     ]
 }
