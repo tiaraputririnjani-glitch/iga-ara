@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Iga ❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0f172a; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .moving-button { position: absolute; transition: all 0.2s ease; }
+    </style>
+</head>
+<body class="text-slate-200 min-h-screen flex items-center justify-center p-6 overflow-hidden">
+
+    <div class="max-w-md w-full text-center">
+        <div class="mb-10">
+            <h1 class="text-sm uppercase tracking-[0.4em] text-slate-500 mb-2">February 14, 2026</h1>
+            <h2 class="text-3xl font-bold text-white">Happy Valentine, Iga.</h2>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 mb-8 shadow-2xl">
+            <div class="col-span-2 overflow-hidden rounded-t-xl">
+                <img src="{{ asset('img/foto2.jpeg') }}" class="w-full h-48 object-cover grayscale hover:grayscale-0 transition duration-700">
+            </div>
+            <div class="overflow-hidden rounded-bl-xl">
+                <img src="{{ asset('img/foto1.jpeg') }}" class="w-full h-32 object-cover grayscale hover:grayscale-0 transition duration-700">
+            </div>
+            <div class="overflow-hidden rounded-br-xl">
+                <img src="{{ asset('img/foto3.jpeg') }}" class="w-full h-32 object-cover grayscale hover:grayscale-0 transition duration-700">
+            </div>
+        </div>
+
+        <div class="mb-10">
+            <p class="text-lg text-slate-300 font-serif italic italic leading-relaxed">
+                "Iga, makasih ya udah selalu ada. Kamu itu bagian paling berharga di hidup aku. Stay with me?"
+            </p>
+        </div>
+
+        <div class="relative h-20 flex justify-center items-center gap-4">
+            <button onclick="accepted()" class="z-10 bg-white text-slate-900 font-bold py-3 px-8 rounded-full hover:bg-yellow-400 transition duration-300 shadow-xl">
+                Yes, I Will
+            </button>
+
+            <button id="noButton" onmouseover="moveButton()" class="bg-slate-800 text-slate-400 border border-slate-700 font-bold py-3 px-8 rounded-full shadow-lg">
+                No
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function moveButton() {
+            const btn = document.getElementById('noButton');
+            // Menghitung posisi acak
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            
+            btn.classList.add('moving-button');
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function accepted() {
+            // Hilangkan semua isi dan kasih pesan cinta
+            document.body.innerHTML = `
+                <div class="text-center animate-bounce">
+                    <h1 class="text-6xl mb-4">❤️</h1>
+                    <h2 class="text-3xl font-bold text-white">I Love You, Iga!</h2>
+                    <p class="text-slate-400 mt-2">You're the most special person in my life!</p>
+                </div>
+            `;
+            // Kamu bisa ganti alert atau redirect ke WhatsApp juga kalau mau
+        }
+    </script>
+</body>
+</html>
