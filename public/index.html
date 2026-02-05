@@ -75,25 +75,3 @@
     </script>
 </body>
 </html>
-<div id="countdown" class="text-slate-400 mt-5 font-mono text-sm"></div>
-
-<script>
-  const targetDate = new Date("February 14, 2026 00:00:00").getTime();
-  
-  setInterval(function() {
-    const now = new Date().getTime();
-    const diff = targetDate - now;
-    
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    
-    if (diff > 0) {
-      document.getElementById("countdown").innerHTML = 
-        `Sabar ya Iga... ❤️ <br> ${days}h ${hours}h ${minutes}m ${seconds}s lagi!`;
-    } else {
-      document.getElementById("countdown").innerHTML = "Happy Valentine's Day, Iga! ❤️";
-    }
-  }, 1000);
-</script>
