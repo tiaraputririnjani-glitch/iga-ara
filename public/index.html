@@ -10,7 +10,6 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0f172a; }
         .font-serif { font-family: 'Playfair Display', serif; }
         .moving-button { position: absolute; transition: all 0.2s ease; }
-        /* Animasi memudar untuk penutup */
         .fade-out { opacity: 0; transition: opacity 1s ease; pointer-events: none; }
     </style>
 </head>
@@ -26,7 +25,7 @@
     <div class="max-w-md w-full text-center">
         <div class="mb-10">
             <h1 class="text-sm uppercase tracking-[0.4em] text-slate-500 mb-2">hai iga❤️</h1>
-            <h2 class="text-3xl font-bold text-white">I Love You!</h2>
+            <h2 class="text-3xl font-bold text-white">🤍</h2>
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-8 shadow-2xl">
@@ -51,7 +50,6 @@
             <button onclick="accepted()" class="z-10 bg-white text-slate-900 font-bold py-3 px-8 rounded-full hover:bg-yellow-400 transition duration-300 shadow-xl">
                 Yes, I Will
             </button>
-
             <button id="noButton" onmouseover="moveButton()" class="bg-slate-800 text-slate-400 border border-slate-700 font-bold py-3 px-8 rounded-full shadow-lg">
                 No
             </button>
@@ -59,33 +57,38 @@
     </div>
 
     <script>
-        // Fungsi untuk membuka amplop
         function bukaSurat() {
             const overlay = document.getElementById('overlay');
             overlay.classList.add('fade-out');
-            setTimeout(() => {
-                overlay.style.display = 'none';
-            }, 1000);
+            setTimeout(() => { overlay.style.display = 'none'; }, 1000);
         }
 
         function moveButton() {
             const btn = document.getElementById('noButton');
             const x = Math.random() * (window.innerWidth - btn.offsetWidth);
             const y = Math.random() * (window.innerHeight - btn.offsetHeight);
-            
             btn.classList.add('moving-button');
             btn.style.left = x + 'px';
             btn.style.top = y + 'px';
         }
 
         function accepted() {
+            // --- GANTI NOMOR WA KAMU DI SINI ---
+            const nomorWA = "6282117903125"; // Pakai 62 di depan ya!
+            const pesan = "Iga udah buka webnya Ara! ❤️";
+
             document.body.innerHTML = `
                 <div class="text-center animate-bounce">
                     <h1 class="text-6xl mb-4">❤️</h1>
                     <h2 class="text-3xl font-bold text-white">I Love You, Iga!</h2>
-                    <p class="text-slate-400 mt-2">You're the most special person in my life!</p>
+                    <p class="text-slate-400 mt-2">Pesan kamu diteruskan ke Ara...</p>
                 </div>
             `;
+
+            // Otomatis lapor ke WA setelah 2 detik
+            setTimeout(() => {
+                window.location.href = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+            }, 2000);
         }
     </script>
 </body>
